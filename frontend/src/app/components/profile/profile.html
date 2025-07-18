@@ -1,0 +1,12 @@
+<app-header></app-header>
+    <div class="profile">
+      <h2>Mon Profil</h2>
+      {{user}}
+      <div *ngIf="user">
+        <p><strong>ID:</strong> {{ user.id }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Nom:</strong> {{ user.nom }}</p>
+      </div>
+      <button (click)="logout()">Déconnexion</button>
+    </div>
+      

@@ -1,0 +1,10 @@
+<header>
+      <div *ngIf="currentUser">
+        Connecté en tant que: <strong>{{ currentUser.nom }}</strong> ({{ currentUser.email }})
+        <button (click)="logout()">Déconnexion</button>
+      </div>
+      <div *ngIf="!currentUser">
+        <a routerLink="/login">Se connecter</a> | 
+        <a routerLink="/signup">S'inscrire</a>
+      </div>
+    </header>
