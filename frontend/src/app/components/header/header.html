@@ -1,10 +1,14 @@
-<header>
-      <div *ngIf="currentUser">
+<header class="bg-info">
+  <nav aria-label="Global" class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
+     <div *ngIf="currentUser">
         Connecté en tant que: <strong>{{ currentUser.nom }}</strong> ({{ currentUser.email }})
-        <button (click)="logout()">Déconnexion</button>
       </div>
-      <div *ngIf="!currentUser">
-        <a routerLink="/login">Se connecter</a> | 
-        <a routerLink="/signup">S'inscrire</a>
-      </div>
-    </header>
+    <div class="hidden lg:flex lg:gap-x-12" *ngIf="!currentUser">
+      <a routerLink="/login" class="text-sm/6 font-semibold text-gray-900">Se connecter</a>
+      <a routerLink="/signup" class="text-sm/6 font-semibold text-gray-900">S'inscrire</a>
+    </div>
+    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <a (click)="logout()" href="https://www.youtube.com/channel/UC0haKlTiI-GxZ3XrLNMFjOw" class="text-sm/6 font-semibold text-gray-900">algostyle<span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </nav>
+</header>

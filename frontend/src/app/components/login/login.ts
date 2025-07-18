@@ -23,6 +23,7 @@ export class Login {
   this.authService.login(this.credentials).subscribe({
     next: (response) => {
       this.authService.saveToken(response.token);
+      localStorage.setItem('email',this.credentials.email);
       // Récupérer les infos utilisateur après connexion
       this.userService.getProfile().subscribe({
         next: (user) => {

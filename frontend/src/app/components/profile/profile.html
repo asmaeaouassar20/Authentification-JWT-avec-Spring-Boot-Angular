@@ -1,12 +1,15 @@
-<app-header></app-header>
-    <div class="profile">
-      <h2>Mon Profil</h2>
-      {{user}}
-      <div *ngIf="user">
+<div class="container d-flex justify-content-center align-items-center  vh-100">
+  <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">{{email}}</h6>
+     <div *ngIf="user">
         <p><strong>ID:</strong> {{ user.id }}</p>
         <p><strong>Email:</strong> {{ user.email }}</p>
         <p><strong>Nom:</strong> {{ user.nom }}</p>
       </div>
-      <button (click)="logout()">Déconnexion</button>
-    </div>
-      
+
+      <button (click)="logout()" class="btn btn-warning">Déconnexion</button>
+  </div>
+</div>
+</div>

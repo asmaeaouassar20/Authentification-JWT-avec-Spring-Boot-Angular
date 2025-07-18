@@ -7,12 +7,13 @@ import { Header } from "../header/header";
 
 @Component({
   selector: 'app-profile',
-  imports: [NgIf, Header],
+  imports: [NgIf],
   templateUrl: './profile.html',
   styleUrl: './profile.css'
 })
 export class Profile implements OnInit {
   user: any = null;
+   email:any =null;
   
   constructor(
     private userService: User, 
@@ -22,6 +23,8 @@ export class Profile implements OnInit {
   
   ngOnInit(): void {
     this.loadProfile();
+
+     this.email=localStorage.getItem('email');
   }
   
   loadProfile(): void {
@@ -39,6 +42,7 @@ export class Profile implements OnInit {
     this.authService.logout().subscribe({
       next: () => {
         this.authService.removeToken();
+        localStorage.removeItem('email')
         this.router.navigate(['/login']);
       }
     });
